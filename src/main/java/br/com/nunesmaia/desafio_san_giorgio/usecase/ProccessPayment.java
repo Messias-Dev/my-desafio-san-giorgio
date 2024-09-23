@@ -7,7 +7,7 @@ import br.com.nunesmaia.desafio_san_giorgio.domain.dtos.PaymentProccessDTO;
 import br.com.nunesmaia.desafio_san_giorgio.domain.entity.Billing;
 import br.com.nunesmaia.desafio_san_giorgio.domain.enums.StatusEnum;
 import br.com.nunesmaia.desafio_san_giorgio.exception.BillingsNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+import br.com.nunesmaia.desafio_san_giorgio.exception.SellerNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class ProccessPayment {
         log.info("verificando existencia de vendedor com ID: {}", dto.getSellerId());
 
         if (!this.sellerRepository.existsById(dto.getSellerId())) {
-            throw new EntityNotFoundException("Vendedor não encontrado");
+            throw new SellerNotFoundException();
         }
 
         var dtoBillingIds = dto.getPayments().stream().map(PaymentDTO::getBillingId).collect(Collectors.toSet());
