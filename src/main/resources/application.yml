@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5433/san-giorgio
+    username: postgres
+    password: 1234
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+aws:
+  region: "sa-east-1"
+  access-key: "test"
+  secret-key: "test"
+  sqs:
+    endpoint: http://localhost:4566
+    account-id: "000000000000"
+    queue-partial: partial-payment
+    queue-total: total-payment
+    queue-excess: excess-payment

@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=sqs
+      - DEBUG=1
+      - SQS_ENDPOINT=http://localhost:4566
+      - SQS_ACCOUNT_ID=000000000000
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - QUEUE_PARTIAL=partial-payment
+      - QUEUE_TOTAL=total-payment
+      - QUEUE_EXCESS=excess-payment
+    volumes:
+      - ./localstack:/var/lib/localstack
+
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: san-giorgio
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
