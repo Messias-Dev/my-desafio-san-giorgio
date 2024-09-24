@@ -1,0 +1,24 @@
+@startuml
+actor User
+participant "API" as Api
+participant "PostgreSQL" as Db
+participant "SQS Queue" as Sqs
+
+User -> Api : Send request
+Api -> Db : Check seller existence
+Db -> Api : Seller exists / Not found
+alt Seller not found
+    Api -> User : Return error
+else Seller exists
+    Api -> Db : Fetch charges by IDs
+    Db -> Api : Return charges / Some IDs not found
+    alt Some IDs not found
+        Api -> User : Return error
+    else All IDs found
+        Api -> Api : Calculate payment values
+        Api -> Sqs : Send payments to SQS
+        Sqs -> Api : Confirmation
+        Api -> User : Return success
+    end
+end
+@enduml
