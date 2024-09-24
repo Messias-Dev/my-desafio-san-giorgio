@@ -2,6 +2,7 @@ package br.com.nunesmaia.desafio_san_giorgio.domain.dtos;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.util.HashSet;
 
 @Getter
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class PaymentProccessDTO {
 
     @NotNull(message = "Vendedor vazio")

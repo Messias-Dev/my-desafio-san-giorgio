@@ -1,4 +1,4 @@
-package br.com.nunesmaia.desafio_san_giorgio.database.repository;
+package br.com.nunesmaia.desafio_san_giorgio.database;
 
 import br.com.nunesmaia.desafio_san_giorgio.domain.entity.Seller;
 import org.springframework.data.jpa.repository.JpaRepository;

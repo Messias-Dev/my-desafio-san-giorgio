@@ -1,6 +1,6 @@
 package br.com.nunesmaia.desafio_san_giorgio.usecase;
 
-import br.com.nunesmaia.desafio_san_giorgio.config.SQSConfig;
+import br.com.nunesmaia.desafio_san_giorgio.config.SqsConfig;
 import br.com.nunesmaia.desafio_san_giorgio.domain.dtos.PaymentDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,10 +11,10 @@ import software.amazon.awssdk.services.sqs.model.SendMessageRequest;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class SQSService {
+public class SqsService {
 
     private final SqsClient sqsClient;
-    private final SQSConfig sqsConfig;
+    private final SqsConfig sqsConfig;
 
     public void sendMessage(PaymentDTO payment) {
 

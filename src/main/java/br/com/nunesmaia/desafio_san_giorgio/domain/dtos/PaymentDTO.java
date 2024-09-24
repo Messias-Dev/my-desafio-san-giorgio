@@ -22,4 +22,8 @@ public class PaymentDTO {
     private StatusEnum status;
 
 
+    public PaymentDTO(Long billingId, Double price) {
+        this.billingId = billingId;
+        this. price = price;
+    }
 }

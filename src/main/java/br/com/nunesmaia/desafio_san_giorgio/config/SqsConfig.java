@@ -12,7 +12,7 @@ import software.amazon.awssdk.regions.Region;
 import java.net.URI;
 
 @Configuration
-public class SQSConfig {
+public class SqsConfig {
 
     @Value("${aws.sqs.endpoint}")
     private String endpoint;

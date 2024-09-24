@@ -1,7 +1,7 @@
 package br.com.nunesmaia.desafio_san_giorgio.usecase;
 
-import br.com.nunesmaia.desafio_san_giorgio.database.repository.BillingRepository;
-import br.com.nunesmaia.desafio_san_giorgio.database.repository.SellerRepository;
+import br.com.nunesmaia.desafio_san_giorgio.database.BillingRepository;
+import br.com.nunesmaia.desafio_san_giorgio.database.SellerRepository;
 import br.com.nunesmaia.desafio_san_giorgio.domain.dtos.PaymentDTO;
 import br.com.nunesmaia.desafio_san_giorgio.domain.dtos.PaymentProccessDTO;
 import br.com.nunesmaia.desafio_san_giorgio.domain.entity.Billing;
@@ -24,7 +24,7 @@ public class ProccessPayment {
 
     private final SellerRepository sellerRepository;
     private final BillingRepository billingRepository;
-    private final SQSService sqsService;
+    private final SqsService sqsService;
 
     public Set<PaymentDTO> execute(PaymentProccessDTO dto) {
 
