@@ -7,13 +7,6 @@ services:
     environment:
       - SERVICES=sqs
       - DEBUG=1
-      - SQS_ENDPOINT=http://localhost:4566
-      - SQS_ACCOUNT_ID=000000000000
-      - AWS_ACCESS_KEY_ID=test
-      - AWS_SECRET_ACCESS_KEY=test
-      - QUEUE_PARTIAL=partial-payment
-      - QUEUE_TOTAL=total-payment
-      - QUEUE_EXCESS=excess-payment
     volumes:
       - ./localstack:/var/lib/localstack
 
